@@ -422,8 +422,19 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: f
 }
 
 @media (max-width: 980px) {
-  #nav { padding: 0 1.25rem; }
+  #nav {
+    padding: 0 1.25rem;
+    justify-content: flex-start;
+  }
   .nav-toggle { display: inline-flex; }
+  .nav-actions {
+    order: 3;
+    margin-left: auto;
+  }
+  .nav-toggle {
+    order: 4;
+    margin-left: .55rem;
+  }
   .nav-links {
     position: absolute;
     top: 60px;
@@ -465,11 +476,54 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: f
   .scroll-hint { bottom: .6rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-stack { min-height: auto; }
+  .section-header {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .s-eyebrow {
+    justify-content: center;
+  }
+  .s-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about-left,
+  .about-text,
+  .about-text p,
+  .sk-section-label {
+    text-align: center;
+  }
   .sk-logos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: none;
   }
   .srv-grid { grid-template-columns: 1fr; }
+  .srv-card,
+  .proj-body,
+  .contact-shell,
+  .contact-sub,
+  .contact-p {
+    text-align: center;
+  }
+  .srv-icon-wrap {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .srv-tags,
+  .proj-stack,
+  .contact-links {
+    justify-content: center;
+  }
+  .proj-footer {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+  .c-link {
+    width: 100%;
+    max-width: 560px;
+  }
   .proj-card.feat,.proj-card.side,.proj-card.third { grid-column: span 12; }
   #about,#services,#projects,#contact { padding-left:1.25rem; padding-right:1.25rem; }
   .contact-buttons { padding: 2.5rem 1.75rem; gap: 2.5rem; }
@@ -515,7 +569,7 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; display: f
   .stat-l { margin-top: 8px; }
   .scroll-hint { display: none; }
   .proj-footer {
-    align-items: flex-start;
+    align-items: center;
     gap: .75rem;
     flex-direction: column;
   }

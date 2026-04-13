@@ -6,7 +6,7 @@ Bienvenido/a a mi portfolio personal, desarrollado con HTML, CSS y JavaScript pu
 
 ## 🔗 Demo en vivo
 
-👉 [orianacastroe.github.io/Portfolio](https://orianacastroe.github.io/
+👉 [orianacastroe.github.io/Portfolio]
 
 ## 📁 Estructura
 Portfolio/
