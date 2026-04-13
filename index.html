@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Oriana Castro</title>
-  <meta name="description" content="Desarrolladora de software freelance en Montevideo. Sitios web, automatizaciones y herramientas a medida. C#, JavaScript, HTML/CSS, MySQL."/>
+  <meta id="meta-description" name="description" content="Desarrolladora de software freelance en Montevideo. Sitios web, automatizaciones y herramientas a medida. C#, JavaScript, HTML/CSS, MySQL."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -22,25 +22,33 @@
     <span class="nav-logo-dot"></span>
     OC.dev
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">Sobre mí</a></li>
-    <li><a href="#services">Servicios</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#contact">Contacto</a></li>
+  <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" data-i18n="navAbout">Sobre mí</a></li>
+    <li><a href="#services" data-i18n="navServices">Servicios</a></li>
+    <li><a href="#projects" data-i18n="navProjects">Proyectos</a></li>
+    <li><a href="#contact" data-i18n="navContact">Contacto</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Hablemos</a>
+  <div class="nav-actions">
+    <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Change language">EN</button>
+    <a href="#contact" class="nav-cta" data-i18n="navCta">Hablemos</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
 
-    <div class="hero-role-pill">
+    <div class="hero-role-pill" data-i18n="heroAvailability">
       <span class="role-dot"></span>
       Disponible para proyectos
     </div>
 
-    <h1 class="hero-h1">
+    <h1 class="hero-h1" data-i18n-html="heroTitle">
       Hola, soy
       <span class="name">Oriana Castro</span>
       <span class="role">Desarrolladora de Software</span>
@@ -55,30 +63,30 @@
       <span class="htag">MySQL</span>
     </div>
 
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="heroSubtitle">
       Estudio Ingeniería en Sistemas en ORT Uruguay y construyo software real para negocios reales — sitios web, automatizaciones y herramientas que ahorran tiempo y dinero.
     </p>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn-primary">
+      <a href="#projects" class="btn-primary" data-i18n-html="heroPrimaryCta">
         Ver proyectos
         <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 2.5l5 5-5 5"/></svg>
       </a>
-      <a href="#contact" class="btn-outline">Contactarme →</a>
+      <a href="#contact" class="btn-outline" data-i18n="heroSecondaryCta">Contactarme →</a>
     </div>
 
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-n">4<em>+</em></div>
-        <div class="stat-l">Proyectos entregados</div>
+        <div class="stat-l" data-i18n="heroStatProjects">Proyectos entregados</div>
       </div>
       <div class="stat">
         <div class="stat-n">6<em>to</em></div>
-        <div class="stat-l">Semestre · ORT UY</div>
+        <div class="stat-l" data-i18n="heroStatSemester">Semestre · ORT UY</div>
       </div>
       <div class="stat">
         <div class="stat-n">3<em>+</em></div>
-        <div class="stat-l">Años programando</div>
+        <div class="stat-l" data-i18n="heroStatYears">Años programando</div>
       </div>
     </div>
 
@@ -101,7 +109,7 @@
     </div>
   </div>
 
-  <a href="#about" class="scroll-hint" aria-label="Ir a la sección Sobre mí">
+  <a href="#about" class="scroll-hint" aria-label="Ir a la sección Sobre mí" data-i18n="scrollHint">
     Hacé scroll
     <span class="scroll-arrow">↓</span>
   </a>
@@ -113,20 +121,20 @@
     <div class="about-grid">
       <div class="about-left">
         <div class="section-header reveal">
-          <div class="s-eyebrow">01 — Sobre mí</div>
-          <h2 class="s-h2">Dev con visión de producto.</h2>
-          <p class="hi2">Creo soluciones a problemas reales.</p>
+          <div class="s-eyebrow" data-i18n="aboutEyebrow">01 — Sobre mí</div>
+          <h2 class="s-h2" data-i18n="aboutTitle">Dev con visión de producto.</h2>
+          <p class="hi2" data-i18n="aboutSubtitle">Creo soluciones a problemas reales.</p>
         </div>
 
         <div class="about-text reveal">
-          <p>Soy <strong>Oriana Castro</strong>, 23 años, Montevideo. Estudio Ingeniería en Sistemas en <strong>ORT Uruguay</strong> (6.º semestre) y trabajo en proyectos freelance desde que empecé la carrera.</p>
-          <p>Mi foco está en <strong>desarrollo web y automatizaciones</strong>. Entrego código limpio, documentado y fácil de mantener — sin vender más de lo que puedo cumplir.</p>
-          <p>Ya tengo en producción sitios para un <strong>grupo empresarial con 3 marcas</strong>, con dominio propio, subdominios y coherencia visual de punta a punta. Si tenés un proyecto, podemos hablarlo.</p>
+          <p data-i18n-html="aboutP1">Soy <strong>Oriana Castro</strong>, 23 años, Montevideo. Estudio Ingeniería en Sistemas en <strong>ORT Uruguay</strong> (6.º semestre) y trabajo en proyectos freelance desde que empecé la carrera.</p>
+          <p data-i18n-html="aboutP2">Mi foco está en <strong>desarrollo web y automatizaciones</strong>. Entrego código limpio, documentado y fácil de mantener — sin vender más de lo que puedo cumplir.</p>
+          <p data-i18n-html="aboutP3">Ya tengo en producción sitios para un <strong>grupo empresarial con 3 marcas</strong>, con dominio propio, subdominios y coherencia visual de punta a punta. Si tenés un proyecto, podemos hablarlo.</p>
         </div>
       </div>
 
       <div class="reveal d1 about-stack">
-        <p class="sk-section-label">Stack tecnológico</p>
+        <p class="sk-section-label" data-i18n="stackLabel">Stack tecnológico</p>
         <div class="sk-logos">
 
       <div class="sk-logo-item" data-tip="HTML5">
@@ -186,9 +194,9 @@
   <div class="section-wrap" style="padding-top:0;">
 
     <div class="section-header reveal">
-      <div class="s-eyebrow">02 — Servicios</div>
-      <h2 class="s-h2">Tu negocio debería ganar más dinero.</h2>
-      <p class="s-sub">Un sitio lento, sin presencia digital o con procesos manuales te está costando clientes hoy. Esto es lo que hago para que eso no pase.</p>
+      <div class="s-eyebrow" data-i18n="servicesEyebrow">02 — Servicios</div>
+      <h2 class="s-h2" data-i18n="servicesTitle">Tu negocio debería ganar más dinero.</h2>
+      <p class="s-sub" data-i18n="servicesSubtitle">Un sitio lento, sin presencia digital o con procesos manuales te está costando clientes hoy. Esto es lo que hago para que eso no pase.</p>
     </div>
 
     <div class="srv-grid">
@@ -197,9 +205,9 @@
         <div class="srv-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3 class="srv-h3">Desarrollo web</h3>
-        <p class="srv-desc">Un sitio web profesional convierte visitas en clientes. Si no tenés uno — o el tuyo da vergüenza — estás regalando ventas a tu competencia.</p>
-        <div class="srv-roi">Resultado: más consultas, más ventas, mejor imagen.</div>
+        <h3 class="srv-h3" data-i18n="srv1Title">Desarrollo web</h3>
+        <p class="srv-desc" data-i18n="srv1Desc">Un sitio web profesional convierte visitas en clientes. Si no tenés uno — o el tuyo da vergüenza — estás regalando ventas a tu competencia.</p>
+        <div class="srv-roi" data-i18n="srv1Roi">Resultado: más consultas, más ventas, mejor imagen.</div>
         <div class="srv-tags">
           <span class="stag">HTML/CSS</span><span class="stag">JavaScript</span><span class="stag">Responsive</span><span class="stag">SEO</span>
         </div>
@@ -210,9 +218,9 @@
         <div class="srv-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <h3 class="srv-h3">Automatizaciones & bots</h3>
-        <p class="srv-desc">Cada hora que tu equipo gasta en tareas repetitivas es plata tirada. Automatizo esos procesos para que las personas se enfoquen en lo que genera valor.</p>
-        <div class="srv-roi">Resultado: menos errores, menos horas perdidas, más rentabilidad.</div>
+        <h3 class="srv-h3" data-i18n="srv2Title">Automatizaciones & bots</h3>
+        <p class="srv-desc" data-i18n="srv2Desc">Cada hora que tu equipo gasta en tareas repetitivas es plata tirada. Automatizo esos procesos para que las personas se enfoquen en lo que genera valor.</p>
+        <div class="srv-roi" data-i18n="srv2Roi">Resultado: menos errores, menos horas perdidas, más rentabilidad.</div>
         <div class="srv-tags">
           <span class="stag">C#</span><span class="stag">APIs REST</span><span class="stag">Bots</span><span class="stag">Integraciones</span>
         </div>
@@ -223,9 +231,9 @@
         <div class="srv-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <h3 class="srv-h3">Dashboards & herramientas</h3>
-        <p class="srv-desc">Si tomás decisiones sin datos o con datos desorganizados, te equivocás más. Construyo paneles claros para que veas tu negocio de un vistazo.</p>
-        <div class="srv-roi">Resultado: decisiones más rápidas, menos sorpresas.</div>
+        <h3 class="srv-h3" data-i18n="srv3Title">Dashboards & herramientas</h3>
+        <p class="srv-desc" data-i18n="srv3Desc">Si tomás decisiones sin datos o con datos desorganizados, te equivocás más. Construyo paneles claros para que veas tu negocio de un vistazo.</p>
+        <div class="srv-roi" data-i18n="srv3Roi">Resultado: decisiones más rápidas, menos sorpresas.</div>
         <div class="srv-tags">
           <span class="stag">MySQL</span><span class="stag">C#</span><span class="stag">JavaScript</span><span class="stag">Google Sheets</span>
         </div>
@@ -240,9 +248,9 @@
   <div class="section-wrap" style="padding-top:0;">
 
     <div class="section-header reveal">
-      <div class="s-eyebrow">03 — Proyectos</div>
-      <h2 class="s-h2">Trabajo real, entregado.</h2>
-      <p class="s-sub">Clientes reales en Uruguay. No son demos, están en producción.</p>
+      <div class="s-eyebrow" data-i18n="projectsEyebrow">03 — Proyectos</div>
+      <h2 class="s-h2" data-i18n="projectsTitle">Trabajo real, entregado.</h2>
+      <p class="s-sub" data-i18n="projectsSubtitle">Clientes reales en Uruguay. No son demos, están en producción.</p>
     </div>
 
     <div class="proj-grid">
@@ -257,7 +265,7 @@
           <p class="proj-desc">Landing del grupo empresarial con presentación de 3 marcas, historia, equipo directivo, métricas y formulario. Dominio personalizado.</p>
           <div class="proj-footer">
             <div class="proj-stack"><span class="pstag">HTML</span><span class="pstag">CSS</span><span class="pstag">JS</span><span class="pstag">GitHub Pages</span></div>
-            <a href="https://orianacastroe.github.io/TransportesCastro/" target="_blank" rel="noopener" class="proj-link">Ver →</a>
+            <a href="https://orianacastroe.github.io/TransportesCastro/" target="_blank" rel="noopener" class="proj-link" data-i18n="projectView">Ver →</a>
           </div>
         </div>
       </article>
@@ -272,7 +280,7 @@
           <p class="proj-desc">Sitio para empresa de volquetas en Montevideo. Subdominio propio, identidad de marca diferenciada.</p>
           <div class="proj-footer">
             <div class="proj-stack"><span class="pstag">HTML</span><span class="pstag">CSS</span><span class="pstag">JS</span></div>
-            <a href="https://volcast.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link">Ver →</a>
+            <a href="https://volcast.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link" data-i18n="projectView">Ver →</a>
           </div>
         </div>
       </article>
@@ -287,7 +295,7 @@
           <p class="proj-desc">Landing para empresa de transporte en Maldonado. Subdominio y diseño diferenciado dentro del grupo.</p>
           <div class="proj-footer">
             <div class="proj-stack"><span class="pstag">HTML</span><span class="pstag">CSS</span><span class="pstag">JS</span></div>
-            <a href="https://volquetasdeleste.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link">Ver →</a>
+            <a href="https://volquetasdeleste.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link" data-i18n="projectView">Ver →</a>
           </div>
         </div>
       </article>
@@ -302,7 +310,7 @@
           <p class="proj-desc">Sitio para empresa de servicios barométricos. Parte del ecosistema web del Grupo Castro.</p>
           <div class="proj-footer">
             <div class="proj-stack"><span class="pstag">HTML</span><span class="pstag">CSS</span><span class="pstag">JS</span></div>
-            <a href="https://barometricalan.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link">Ver →</a>
+            <a href="https://barometricalan.transportescastro.com.uy/" target="_blank" rel="noopener" class="proj-link" data-i18n="projectView">Ver →</a>
           </div>
         </div>
       </article>
@@ -312,12 +320,12 @@
           <span class="proj-thumb-ph">Próximamente</span>
         </div>
         <div class="proj-body">
-          <div class="proj-client">En desarrollo</div>
-          <h3 class="proj-h3">Más proyectos en camino</h3>
-          <p class="proj-desc">¿Querés ser el próximo? Hablemos de tu proyecto.</p>
+          <div class="proj-client" data-i18n="projectComingClient">En desarrollo</div>
+          <h3 class="proj-h3" data-i18n="projectComingTitle">Más proyectos en camino</h3>
+          <p class="proj-desc" data-i18n="projectComingDesc">¿Querés ser el próximo? Hablemos de tu proyecto.</p>
           <div class="proj-footer">
             <div class="proj-stack"></div>
-            <a href="#contact" class="proj-link">Hablemos →</a>
+            <a href="#contact" class="proj-link" data-i18n="projectTalk">Hablemos →</a>
           </div>
         </div>
       </article>
@@ -331,15 +339,15 @@
   <div class="section-wrap" style="padding-top:0;">
 
     <div class="section-header reveal">
-      <div class="s-eyebrow">04 — Contacto</div>
+      <div class="s-eyebrow" data-i18n="contactEyebrow">04 — Contacto</div>
     </div>
 
     <div class="contact-hero reveal">
-      <h2 class="contact-big-title">¿Arrancamos<br><span class="ghost">algo juntos?</span></h2>
-      <p class="contact-big-sub">Estoy disponible para proyectos freelance en Uruguay y remoto.<br>Respondo en menos de 24 horas. Sin compromisos.</p>
+      <h2 class="contact-big-title" data-i18n-html="contactTitle">¿Arrancamos<br><span class="ghost">algo juntos?</span></h2>
+      <p class="contact-big-sub" data-i18n-html="contactSubtitle">Estoy disponible para proyectos freelance en Uruguay y remoto.<br>Respondo en menos de 24 horas. Sin compromisos.</p>
     </div>
 
-    <div style="margin:0 auto; padding:2rem; text-align:center;">
+    <div class="contact-shell">
       <div class="contact-buttons">
         <div class="contact-links reveal reveal-d2">
           <a href="mailto:orianacastroe@gmail.com" class="c-link">
@@ -377,7 +385,7 @@
   <p class="f-copy">© <span id="year"></span> Oriana Castro · Montevideo, Uruguay</p>
   <div class="f-status">
     <span class="f-dot"></span>
-    Disponible para proyectos
+    <span data-i18n="footerStatus">Disponible para proyectos</span>
   </div>
 </footer>
 
