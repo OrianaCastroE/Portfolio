@@ -17,7 +17,7 @@ document.addEventListener('mousemove', function(e) {
   requestAnimationFrame(loop);
 })();
 
-document.querySelectorAll('a, button, .proj-card, .srv-card, .sk-chip, .c-link').forEach(function(el) {
+document.querySelectorAll('a, button, .proj-card, .srv-card, .c-link').forEach(function(el) {
   el.addEventListener('mouseenter', function() {
     dot.classList.add('active');
     ring.classList.add('active');
@@ -32,6 +32,7 @@ document.querySelectorAll('a, button, .proj-card, .srv-card, .sk-chip, .c-link')
 var nav = document.getElementById('nav');
 var navToggle = document.getElementById('nav-toggle');
 var navLinks = document.querySelectorAll('.nav-links a');
+var navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
 function closeMobileMenu() {
   if (!nav) return;
@@ -65,6 +66,29 @@ window.addEventListener('resize', function() {
     closeMobileMenu();
   }
 }, { passive: true });
+
+function updateActiveNavLink() {
+  var activeId = '';
+
+  navAnchorLinks.forEach(function(link) {
+    var targetId = link.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+    var section = document.querySelector(targetId);
+    if (!section) return;
+
+    var rect = section.getBoundingClientRect();
+    if (rect.top <= 130 && rect.bottom >= 130) {
+      activeId = targetId;
+    }
+  });
+
+  navAnchorLinks.forEach(function(link) {
+    link.classList.toggle('active', link.getAttribute('href') === activeId);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+window.addEventListener('resize', updateActiveNavLink, { passive: true });
 
 /* ─── SCROLL REVEAL ──────────────────────────────────── */
 var revealEls = document.querySelectorAll('.reveal');
@@ -107,6 +131,7 @@ var i18n = {
     navProjects: 'Proyectos',
     navContact: 'Contacto',
     navCta: 'Hablemos',
+    heroTagOthers: 'Otros',
     heroAvailability: 'Disponible para proyectos',
     heroTitle: 'Hola, soy <span class="name">Oriana Castro</span><span class="role">Desarrolladora de Software</span>',
     heroSubtitle: 'Estudio Ingenieria en Sistemas en ORT Uruguay y construyo software real para negocios reales: sitios web, automatizaciones y herramientas que ahorran tiempo y dinero.',
@@ -115,6 +140,8 @@ var i18n = {
     heroStatProjects: 'Proyectos entregados',
     heroStatSemester: 'Semestre · ORT UY',
     heroStatYears: 'Años programando',
+    heroProofLabel: 'Marcas con las que trabaje',
+    heroProofAria: 'Prueba social de clientes y marcas',
     scrollHint: 'Hace scroll <span class="scroll-arrow">↓</span>',
     scrollAria: 'Ir a la seccion Sobre mi',
     aboutEyebrow: '01 - Sobre mi',
@@ -140,6 +167,18 @@ var i18n = {
     projectsTitle: 'Trabajo real, entregado.',
     projectsSubtitle: 'Clientes reales en Uruguay. No son demos, estan en produccion.',
     projectView: 'Ver ->',
+    proj1Client: 'Grupo Castro · Montevideo',
+    proj1Title: 'Transportes Castro — Sitio Corporativo',
+    proj1Desc: 'Landing del grupo empresarial con presentación de 3 marcas, historia, equipo directivo, métricas y formulario. Dominio personalizado.',
+    proj2Client: 'Volcast',
+    proj2Title: 'Volcast — Landing empresarial',
+    proj2Desc: 'Sitio para empresa de volquetas en Montevideo. Identidad de marca diferenciada, secciones diferenciadas.',
+    proj3Client: 'Volquetas del Este',
+    proj3Title: 'Volquetas del Este',
+    proj3Desc: 'Landing para empresa de volquetas en Maldonado. Diseño diferenciado dentro del grupo, sitio en proceso.',
+    proj4Client: 'Barométrica LAN',
+    proj4Title: 'Barométrica LAN',
+    proj4Desc: 'Sitio para empresa de servicios barométricos. Parte del ecosistema web del grupo Transportes Castro.',
     projectComingClient: 'En desarrollo',
     projectComingTitle: 'Mas proyectos en camino',
     projectComingDesc: 'Queres ser el proximo? Hablemos de tu proyecto.',
@@ -149,7 +188,25 @@ var i18n = {
     contactSubtitle: 'Estoy disponible para proyectos freelance en Uruguay y remoto.<br>Respondo en menos de 24 horas. Sin compromisos.',
     footerStatus: 'Disponible para proyectos',
     toggleLabel: 'EN',
-    toggleAria: 'Switch page language to English'
+    toggleAria: 'Switch page language to English',
+    contactLinksLabel: 'O contactame por:',
+    formName: 'Nombre',
+    formPlaceholderName: 'Tu nombre',
+    formPlaceholderEmail: 'tu@email.com',
+    formType: 'Tipo de proyecto',
+    formTypeDefault: 'Seleccioná una opción',
+    formTypeWeb: 'Sitio web',
+    formTypeAuto: 'Automatización',
+    formTypeDash: 'Dashboard / herramienta',
+    formTypeOther: 'Otro',
+    formMessage: 'Mensaje',
+    formPlaceholderMessage: 'Contame sobre tu proyecto...',
+    formSubmit: 'Enviar mensaje',
+    formSending: 'Enviando...',
+    srvSoon: 'Próximamente',
+    formErrRequired: 'Completá nombre, email y mensaje antes de enviar.',
+    formErrEmail: 'El email no parece válido.',
+    formSuccess: '¡Abriendo WhatsApp! Completá el envío desde ahí.'
   },
   en: {
     pageTitle: 'Oriana Castro',
@@ -159,6 +216,7 @@ var i18n = {
     navProjects: 'Projects',
     navContact: 'Contact',
     navCta: 'Lets talk',
+    heroTagOthers: 'Others',
     heroAvailability: 'Available for projects',
     heroTitle: 'Hi, I am <span class="name">Oriana Castro</span><span class="role">Software Developer</span>',
     heroSubtitle: 'I study Systems Engineering at ORT Uruguay and build real software for real businesses: websites, automations, and tools that save time and money.',
@@ -167,6 +225,8 @@ var i18n = {
     heroStatProjects: 'Projects delivered',
     heroStatSemester: 'Semester · ORT UY',
     heroStatYears: 'Years coding',
+    heroProofLabel: 'Brands I have worked with',
+    heroProofAria: 'Social proof of clients and brands',
     scrollHint: 'Scroll down <span class="scroll-arrow">↓</span>',
     scrollAria: 'Go to About section',
     aboutEyebrow: '01 - About',
@@ -192,6 +252,18 @@ var i18n = {
     projectsTitle: 'Real work, shipped.',
     projectsSubtitle: 'Real clients in Uruguay. These are live projects, not demos.',
     projectView: 'View ->',
+    proj1Client: 'Castro Group · Montevideo',
+    proj1Title: 'Transportes Castro — Corporate Site',
+    proj1Desc: 'Landing page for a business group presenting 3 brands, history, management team, metrics and contact form. Custom domain.',
+    proj2Client: 'Volcast',
+    proj2Title: 'Volcast — Business Landing',
+    proj2Desc: 'Website for a skip hire company in Montevideo. Differentiated brand identity and sections.',
+    proj3Client: 'Volquetas del Este',
+    proj3Title: 'Volquetas del Este',
+    proj3Desc: 'Landing page for a skip hire company in Maldonado. Distinct design within the group, site in progress.',
+    proj4Client: 'Barométrica LAN',
+    proj4Title: 'Barométrica LAN',
+    proj4Desc: 'Website for a barometric services company. Part of the Transportes Castro group web ecosystem.',
     projectComingClient: 'In progress',
     projectComingTitle: 'More projects coming soon',
     projectComingDesc: 'Want to be next? Lets talk about your project.',
@@ -201,7 +273,25 @@ var i18n = {
     contactSubtitle: 'I am available for freelance projects in Uruguay and remotely.<br>I reply in less than 24 hours. No commitment.',
     footerStatus: 'Available for projects',
     toggleLabel: 'ES',
-    toggleAria: 'Cambiar idioma a español'
+    toggleAria: 'Cambiar idioma a español',
+    contactLinksLabel: 'Or reach me at:',
+    formName: 'Name',
+    formPlaceholderName: 'Your name',
+    formPlaceholderEmail: 'your@email.com',
+    formType: 'Project type',
+    formTypeDefault: 'Select an option',
+    formTypeWeb: 'Website',
+    formTypeAuto: 'Automation',
+    formTypeDash: 'Dashboard / tool',
+    formTypeOther: 'Other',
+    formMessage: 'Message',
+    formPlaceholderMessage: 'Tell me about your project...',
+    formSubmit: 'Send message',
+    formSending: 'Sending...',
+    srvSoon: 'Coming soon',
+    formErrRequired: 'Please fill in name, email and message before sending.',
+    formErrEmail: 'That email doesn\'t look valid.',
+    formSuccess: 'Opening WhatsApp! Complete the send from there.'
   }
 };
 
@@ -265,6 +355,20 @@ function applyTranslations(lang) {
     langBtn.textContent = dict.toggleLabel;
     langBtn.setAttribute('aria-label', dict.toggleAria);
   }
+
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-aria');
+    if (dict[key]) {
+      el.setAttribute('aria-label', dict[key]);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key]) {
+      el.setAttribute('placeholder', dict[key]);
+    }
+  });
 
   localStorage.setItem('lang', lang);
   currentLang = lang;
@@ -336,12 +440,78 @@ if (!i18n[currentLang]) {
 
 applyTranslations(currentLang);
 startTerminalTyping(currentLang);
+updateActiveNavLink();
 
 if (langBtn) {
   langBtn.addEventListener('click', function() {
     var nextLang = currentLang === 'es' ? 'en' : 'es';
     applyTranslations(nextLang);
     startTerminalTyping(nextLang);
+  });
+}
+
+/* ─── SCROLL TOP ────────────────────────────────────── */
+var scrollTopBtn = document.getElementById('scroll-top');
+
+function updateScrollTopButton() {
+  if (!scrollTopBtn) return;
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 460);
+}
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+window.addEventListener('scroll', updateScrollTopButton, { passive: true });
+window.addEventListener('resize', updateScrollTopButton, { passive: true });
+updateScrollTopButton();
+
+/* ─── CONTACT FORM → WhatsApp ────────────────────────── */
+var contactForm = document.getElementById('contact-form');
+var cfStatus    = document.getElementById('cf-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var dict = i18n[currentLang] || i18n.es;
+
+    var name     = document.getElementById('cf-name').value.trim();
+    var typeEl   = document.getElementById('cf-type');
+    var typeText = typeEl.options[typeEl.selectedIndex].text;
+    var message  = document.getElementById('cf-msg').value.trim();
+
+    // Validación
+    if (!name || !message) {
+      if (cfStatus) { cfStatus.textContent = dict.formErrRequired; cfStatus.className = 'cf-status err'; }
+      return;
+    }
+    if (cfStatus) { cfStatus.textContent = ''; cfStatus.className = 'cf-status'; }
+
+    var lines = currentLang === 'en'
+      ? [
+          'Hi Oriana! Writing from your portfolio.',
+          '',
+          'Name: '         + name,
+          'Project type: ' + typeText,
+          '',
+          message
+        ]
+      : [
+          '¡Hola Oriana! Te escribo desde tu portfolio.',
+          '',
+          'Nombre: '           + name,
+          'Tipo de proyecto: ' + typeText,
+          '',
+          message
+        ];
+
+    var url = 'https://wa.me/59899323321?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank');
+
+    if (cfStatus) { cfStatus.textContent = dict.formSuccess; cfStatus.className = 'cf-status ok'; }
+    contactForm.reset();
   });
 }
 
